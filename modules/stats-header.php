@@ -1,6 +1,6 @@
 <head>
 	<title><?php echo $sitename ?></title>
-	<link rel="stylesheet" href="css/stylesheet.css" type="text/css" />
+	<!--<link rel="stylesheet" href="css/stylesheet.css" type="text/css" />-->
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	
@@ -97,15 +97,66 @@
 			});
 		});
 	</script>
+	<script>
+		$(document).ready(function(){
+			$(".navbar").affix({offset: {top: $("header").outerHeight(true)} });
+		});
+		</script>
+	<style>
+			.affix {
+				top: 0;
+				width: 100%;
+				z-index: 1000;
+				
+			}
+			.affix + .container-fluid {
+				padding-top: 70px;
+			}
+		</style>
 </head>
 
 <!DOCTYPE html>
 <html lang="EN">
 <body>
-    <div id="wrapper">
+	<nav class="navbar navbar-inverse">
+  				<div class="container-fluid">
+    				<div class="navbar-header">
+    					<img src="images/DayZAdmin.png" width="200px" height="50px"></img>
+    				</div>
+    				<div>
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="#" data-toggle="collapse" data-target="#SubMenu">Home</a></li>
+							<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Module <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Create</a></li>
+									<li><a href="#">Page 1-2</a></li>
+									<li><a href="#">Page 1-3</a></li>
+								</ul>
+							</li>
+        					<li><a href="#">Page 2</a></li>
+        					<li><a href="#">Page 3</a></li>
+      					</ul>
+      					<form class="navbar-form navbar-left" role="search">
+      						<div class="input-group">
+      							<input type="text" class="form-control" placeholder="Search">
+      							<div class="input-group-btn">
+      								<button class="btn btn-default">
+      									<span class="glyphicon glyphicon-search"></span>
+      								</button>
+      							</div>
+      						</div>
+      					</form>
+      					<ul class="nav navbar-nav navbar-right">
+        					<li><a href="#" data-toggle="modal" data-target="#SignUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        					<li><a href="#" data-toggle="modal" data-target="#Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      			</ul>
+    		</div>
+		</div>
+	</nav>	
+    <div class="container-fluid" id="wrapper">
 
         <!-- Sidebar -->
-        <div id="sidebar-wrapper">
+        <div class="col-md-2" id="sidebar-wrapper">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
 				<span class="sr-only">Toggle navigation</span>
@@ -114,21 +165,24 @@
 				<span class="icon-bar"></span>
 				</button>
 			</div>
-			<div class="collapse navbar-collapse" id="navbar-collapse-1">
-				<ul class="sidebar-nav">
-					<li class="sidebar-brand" style="padding-top: 8px;"><a href="index.php"><img src="images/DayZAdmin.png" width="200px" height="50px"></img></a>
-					</li>
-					<li <?php echo ($page == 'home' ? ' class="active" ' : ' '); ?>><a href="<?php echo ($page == 'cpanel' ? ' ../index.php ' : ' index.php '); ?>"><i class="icon-home icon-color"></i> Stats</a>
-					</li>
-					<li <?php echo ($page == 'leaderboard' ? ' class="active" ' : ' '); ?>><a href="<?php echo ($page == 'cpanel' ? ' ../index.php?leaderboard ' : ' index.php?leaderboard '); ?>"><i class="icon-home icon-color"></i> Leaderboard</a> 
-					</li>
-					<?php if ($ManuPanelLink == 1) { ?>
-					<li <?php echo ($page == 'dashboard' || $page == 'cpanel' ? ' class="active" ' : ' '); ?>><a href="<?php echo ($page == 'cpanel' ? ' ../'.$security.'.php ' : ' '.$security.'.php '); ?>"><i class="icon-cog icon-color"></i> Dashboard</a>
-					</li>
-					<?php } ?>
-				</ul>
-				<div class="gametracker">
-					<a href="http://www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/" target="_blank"><img src="http://cache.www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/b_160_400_1_ffffff_c5c5c5_ffffff_000000_0_1_0.png" border="0" width="160" height="248" alt=""/></a>
+			<div class="panel panel-default" id="navbar-collapse-1">
+				<div class="panel-body">
+					<div class="list-group panel ">
+						<ul class="sidebar-nav">
+							<a href="index.php">Home</a>
+							<li <?php echo ($page == 'home' ? ' class="active" ' : ' '); ?>><a href="<?php echo ($page == 'cpanel' ? ' ../index.php ' : ' index.php '); ?>"><i class="icon-home icon-color"></i> Stats</a>
+							</li>
+							<li <?php echo ($page == 'leaderboard' ? ' class="active" ' : ' '); ?>><a href="<?php echo ($page == 'cpanel' ? ' ../index.php?leaderboard ' : ' index.php?leaderboard '); ?>"><i class="icon-home icon-color"></i> Leaderboard</a> 
+							</li>
+							<?php if ($ManuPanelLink == 1) { ?>
+							<li <?php echo ($page == 'dashboard' || $page == 'cpanel' ? ' class="active" ' : ' '); ?>><a href="<?php echo ($page == 'cpanel' ? ' ../'.$security.'.php ' : ' '.$security.'.php '); ?>"><i class="icon-cog icon-color"></i> Dashboard</a>
+							</li>
+							<?php } ?>
+						</ul>
+						<div class="gametracker">
+						<a href="http://www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/" target="_blank"><img src="http://cache.www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/b_160_400_1_ffffff_c5c5c5_ffffff_000000_0_1_0.png" border="0" width="160" height="248" alt=""/></a>
+						</div>
+					</div>
 				</div>
 			</div>       
 		</div>
