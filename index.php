@@ -40,18 +40,19 @@
 	}
 ?>
 <?php include('modules/stats-header.php'); ?>
-		<div class="col-md-10">
+		<div class="col-md-8">
 			<div class="panel panel-default">
 				<div class="panel-body">
 				<?php
 					if(isset($_GET['leaderboard'])) {
 						include('modules/leaderboard.php');
-					} else {
-						include('modules/stats.php');
 					}
 				?>
 				</div>
 			</div>
+		</div>
+		<div class="col-md-2">
+			<?php include('modules/stats.php') ?>
 		</div>
 	<?php if ($EnableSocialMedia == 1) { ?> 
 	<div class="social-box" style="margin-top: 30px;">

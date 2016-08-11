@@ -13,6 +13,7 @@
 	<script language="javascript" type="text/javascript" src="js/jquery.min.js"></script>
 	<script language="javascript" type="text/javascript" src="js/jquery.jqplot.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/jquery.jqplot.css" />
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/plugins/jqplot.canvasTextRenderer.min.js"></script>
 	<script type="text/javascript" src="js/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>	
 	<script type="text/javascript" src="js/plugins/jqplot.bubbleRenderer.min.js"></script>	
@@ -97,66 +98,51 @@
 			});
 		});
 	</script>
-	<script>
-		$(document).ready(function(){
-			$(".navbar").affix({offset: {top: $("header").outerHeight(true)} });
-		});
-		</script>
-	<style>
-			.affix {
-				top: 0;
-				width: 100%;
-				z-index: 1000;
-				
-			}
-			.affix + .container-fluid {
-				padding-top: 70px;
-			}
-		</style>
 </head>
 
 <!DOCTYPE html>
 <html lang="EN">
 <body>
 	<nav class="navbar navbar-inverse">
-  				<div class="container-fluid">
-    				<div class="navbar-header">
-    					<img src="images/DayZAdmin.png" width="200px" height="50px"></img>
-    				</div>
-    				<div>
-						<ul class="nav navbar-nav">
-							<li class="active"><a href="#" data-toggle="collapse" data-target="#SubMenu">Home</a></li>
-							<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Module <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Create</a></li>
-									<li><a href="#">Page 1-2</a></li>
-									<li><a href="#">Page 1-3</a></li>
-								</ul>
-							</li>
-        					<li><a href="#">Page 2</a></li>
-        					<li><a href="#">Page 3</a></li>
+  		<div class="container-fluid">
+    		<div class="navbar-header">
+    			<img src="images/DayZAdmin.png" width="200px"></img>
+    		</div>
+    		<div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#" data-toggle="collapse" data-target="#SubMenu">Home</a></li>
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Module <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Create</a></li>
+							<li><a href="#">Page 1-2</a></li>
+							<li><a href="#">Page 1-3</a></li>
+						</ul>
+					</li>
+        			<li><a href="#">Page 2</a></li>
+        			<li><a href="#">Page 3</a></li>
       					</ul>
-      					<form class="navbar-form navbar-left" role="search">
-      						<div class="input-group">
-      							<input type="text" class="form-control" placeholder="Search">
-      							<div class="input-group-btn">
-      								<button class="btn btn-default">
-      									<span class="glyphicon glyphicon-search"></span>
-      								</button>
+      						<form class="navbar-form navbar-left" role="search">
+      							<div class="input-group">
+      								<input type="text" class="form-control" placeholder="Search">
+      								<span class="input-group-btn">
+      									<button class="btn btn-default">
+      										<span class="glyphicon glyphicon-search"></span>
+      									</button>
+      								</div>
       							</div>
-      						</div>
-      					</form>
+      						</form>
       					<ul class="nav navbar-nav navbar-right">
         					<li><a href="#" data-toggle="modal" data-target="#SignUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         					<li><a href="#" data-toggle="modal" data-target="#Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      			</ul>
-    		</div>
-		</div>
+      					</ul>
+    				</div>
+				</div>
+			</div>
 	</nav>	
     <div class="container-fluid" id="wrapper">
 
         <!-- Sidebar -->
-        <div class="col-md-2" id="sidebar-wrapper">
+        <div class="col-lg-2" id="sidebar-wrapper">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
 				<span class="sr-only">Toggle navigation</span>
