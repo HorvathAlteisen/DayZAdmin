@@ -168,20 +168,15 @@
 			<div class="panel panel-default" id="navbar-collapse-1">
 				<div class="panel-body">
 					<div class="list-group panel ">
-						<ul class="sidebar-nav">
-							<a href="index.php">Home</a>
-							<li <?php echo ($page == 'home' ? ' class="active" ' : ' '); ?>><a href="<?php echo ($page == 'cpanel' ? ' ../index.php ' : ' index.php '); ?>"><i class="icon-home icon-color"></i> Stats</a>
-							</li>
-							<li <?php echo ($page == 'leaderboard' ? ' class="active" ' : ' '); ?>><a href="<?php echo ($page == 'cpanel' ? ' ../index.php?leaderboard ' : ' index.php?leaderboard '); ?>"><i class="icon-home icon-color"></i> Leaderboard</a> 
-							</li>
+							<a class="list-group-item list-group-item-info" href="index.php">Home</a>
+							<a class="list-group-item list-group-item-info" href="<?php echo ($page == 'cpanel' ? ' ../index.php ' : ' index.php '); ?>"><i class="icon-home icon-color"></i> Stats</a>
+							<a class="list-group-item list-group-item-info" href="<?php echo ($page == 'cpanel' ? ' ../index.php?leaderboard ' : ' index.php?leaderboard '); ?>"><i class="icon-home icon-color"></i> Leaderboard</a> 
 							<?php if ($ManuPanelLink == 1) { ?>
-							<li <?php echo ($page == 'dashboard' || $page == 'cpanel' ? ' class="active" ' : ' '); ?>><a href="<?php echo ($page == 'cpanel' ? ' ../'.$security.'.php ' : ' '.$security.'.php '); ?>"><i class="icon-cog icon-color"></i> Dashboard</a>
-							</li>
+							<a class="list-group-item list-group-item-info" href="<?php echo ($page == 'cpanel' ? ' ../'.$security.'.php ' : ' '.$security.'.php '); ?>"><i class="icon-cog icon-color"></i> Dashboard</a>
 							<?php } ?>
-						</ul>
-						<div class="gametracker">
+						<!--<div class="gametracker">
 						<a href="http://www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/" target="_blank"><img src="http://cache.www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/b_160_400_1_ffffff_c5c5c5_ffffff_000000_0_1_0.png" border="0" width="160" height="248" alt=""/></a>
-						</div>
+						</div>-->
 					</div>
 				</div>
 			</div>       

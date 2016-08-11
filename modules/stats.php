@@ -2,13 +2,13 @@
 	<div id="page-heading">
 		<h1>Statistics</h1>
 	</div>
-	<div class="row">
-		<div class="col-lg-1">
-		</div>
+	<!--<div>-->
+		<!--<div class="col-md-1">
+		</div>-->
 		<div class="col-lg-5">
 			<div class="stats-box">		
 				<div class="stats-box-inner">
-					<table border="0" cellpadding="4" cellspacing="0">
+					<table border="0" cellspacing="0">
 						<td width="26"><img src="images/icons/statspage/totalplayers1.png" width="36" height="36" /></td>
 							<td width="184"><font color="#428bca"><strong>Total Players:</strong></font></td>
 							<td align="right"><?php echo $num_totalplayers;?></td>
@@ -83,16 +83,16 @@
 		</div>
 		
 		<div class="col-lg-3">
-			<div id="chart1" style="height:200px;width:200px;"></div>
+			<div class="img-thumbnail" id="chart1" style="height:200px;width:200px;"></div>
 			<br>
-			<div id="chart2" style="height:200px;width:200px;"></div>	
+			<div class="img-thumbnail" id="chart2" style="height:200px;width:200px;"></div>	
 			<br>
-			<div id="chart4" style="height:200px;width:200px;"></div>
+			<div class="img-thumbnail" id="chart4" style="height:200px;width:200px;"></div>
 		</div>
 		<div class="col-lg-3">
-			<div id="chart3" style="height:200px;width:200px;"></div>
+			<div class="img-thumbnail" id="chart3" style="height:200px;width:200px;"></div>
 			<br>
-			<div id="chart5" style="height:200px;width:200px;"></div>
+			<div class="img-thumbnail" id="chart5" style="height:200px;width:200px;"></div>
 		</div>
-	</div>	
+	<!--</div>-->	
 </div>
