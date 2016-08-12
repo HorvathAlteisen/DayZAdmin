@@ -62,7 +62,7 @@
 
 			?>
 		</div>
-		<table class="table">
+		<table class="table table-striped">
 			<thead>
 				<th>#</th>
 				<th><img src="images/icons/statspage/totalplayers1.png" width="25px" height="25px" class="table-img"></img> Name</th>

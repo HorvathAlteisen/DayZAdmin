@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="EN">
 <head>
 	<title><?php echo $sitename ?></title>
 	<!--<link rel="stylesheet" href="css/stylesheet.css" type="text/css" />-->
@@ -99,71 +101,45 @@
 		});
 	</script>
 </head>
-
-<!DOCTYPE html>
-<html lang="EN">
 <body>
-	<nav class="navbar navbar-inverse">
-  		<div class="container-fluid">
-    		<div class="navbar-header">
-    			<img src="images/DayZAdmin.png" width="200px"></img>
-    		</div>
-    		<div>
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#" data-toggle="collapse" data-target="#SubMenu">Home</a></li>
-					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Module <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Create</a></li>
-							<li><a href="#">Page 1-2</a></li>
-							<li><a href="#">Page 1-3</a></li>
-						</ul>
-					</li>
-        			<li><a href="#">Page 2</a></li>
-        			<li><a href="#">Page 3</a></li>
-      					</ul>
-      						<form class="navbar-form navbar-left" role="search">
-      							<div class="input-group">
-      								<input type="text" class="form-control" placeholder="Search">
-      								<span class="input-group-btn">
-      									<button class="btn btn-default">
-      										<span class="glyphicon glyphicon-search"></span>
-      									</button>
-      								</div>
-      							</div>
-      						</form>
-      					<ul class="nav navbar-nav navbar-right">
+	<div class="container">
+		<header class="container-fluid jumbotron page-header">
+			<h1>Dead SeriouZ</h1>
+			<p>We take Surviving to another level!</p>
+		</header>
+		<?php if (isset($_SESSION['user_id'])) {?>
+		<nav class="navbar navbar-inverse">
+  			<div class="container">
+    			<div class="navbar-header">
+    				<img src="images/DayZAdmin.png" width="200px"></img>
+    			</div>
+    			<div>
+					<ul class="nav navbar-nav">
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Module <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Create</a></li>
+								<li><a href="#">Page 1-2</a></li>
+								<li><a href="#">Page 1-3</a></li>
+							</ul>
+						</li>
+      					<ul class="nav navbar-nav">
         					<li><a href="#" data-toggle="modal" data-target="#SignUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         					<li><a href="#" data-toggle="modal" data-target="#Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       					</ul>
-    				</div>
+    					</div>
+    				</ul>
 				</div>
 			</div>
-	</nav>	
-    <div class="container-fluid" id="wrapper">
-
+		</nav>
+		<?php } ?>
         <!-- Sidebar -->
-        <div class="col-lg-2" id="sidebar-wrapper">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				</button>
+        <div class="col-md-2" id="sidebar-wrapper">
+			<div class="list-group panel ">
+				<a class="list-group-item list-group-item-info" href="index.php"><i class="icon-home icon-color"></i>News</a>
+				<a class="list-group-item list-group-item-info" href="<?php echo ($page == 'cpanel' ? ' ../index.php ' : ' index.php '); ?>"><i class="icon-home icon-color"></i> Stats</a>
+				<a class="list-group-item list-group-item-info" href="<?php echo ($page == 'cpanel' ? ' ../index.php?leaderboard ' : ' index.php?leaderboard '); ?>"><i class="icon-home icon-color"></i> Leaderboard</a> 
+				<?php if ($ManuPanelLink == 1) { ?>
+				<a class="list-group-item list-group-item-info" href="<?php echo ($page == 'cpanel' ? ' ../'.$security.'.php ' : ' '.$security.'.php '); ?>"><i class="icon-cog icon-color"></i> Dashboard</a>
+				<?php } ?>				
 			</div>
-			<div class="panel panel-default" id="navbar-collapse-1">
-				<div class="panel-body">
-					<div class="list-group panel ">
-							<a class="list-group-item list-group-item-info" href="index.php">Home</a>
-							<a class="list-group-item list-group-item-info" href="<?php echo ($page == 'cpanel' ? ' ../index.php ' : ' index.php '); ?>"><i class="icon-home icon-color"></i> Stats</a>
-							<a class="list-group-item list-group-item-info" href="<?php echo ($page == 'cpanel' ? ' ../index.php?leaderboard ' : ' index.php?leaderboard '); ?>"><i class="icon-home icon-color"></i> Leaderboard</a> 
-							<?php if ($ManuPanelLink == 1) { ?>
-							<a class="list-group-item list-group-item-info" href="<?php echo ($page == 'cpanel' ? ' ../'.$security.'.php ' : ' '.$security.'.php '); ?>"><i class="icon-cog icon-color"></i> Dashboard</a>
-							<?php } ?>
-						<!--<div class="gametracker">
-						<a href="http://www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/" target="_blank"><img src="http://cache.www.gametracker.com/server_info/<?php echo $serverip?>:<?php echo $serverport?>/b_160_400_1_ffffff_c5c5c5_ffffff_000000_0_1_0.png" border="0" width="160" height="248" alt=""/></a>
-						</div>-->
-					</div>
-				</div>
-			</div>       
 		</div>
