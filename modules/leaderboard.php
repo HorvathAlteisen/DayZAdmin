@@ -55,24 +55,24 @@
 
 <div class="leaderboard-content">
 	<div class="leaderboard-box">	
-		<div id="page-heading-leaderboard">
+		<div class="page-header">
 			<?php
-				echo "<title>".$pagetitle." - ".$sitename."</title>";
-				echo "<h1>".$pagetitle."</h1>";
+				//echo "<title>".$pagetitle." - ".$sitename."</title>";
+				echo "<h2>".$pagetitle."</h1>";
 
 			?>
 		</div>
 		<table class="table table-striped">
 			<thead>
 				<th>#</th>
-				<th><img src="images/icons/statspage/totalplayers1.png" width="25px" height="25px" class="table-img"></img> Name</th>
-				<th><img src="images/icons/statspage/infectedkilled1.png" width="25px" height="25px" class="table-img"></img> Z Kills</th>
-				<th><img src="images/icons/statspage/murders.png" width="25px" height="25px" class="table-img"></img> Murders</th>
-				<th><img src="images/icons/statspage/banditskilled1.png" width="25px" height="25px" class="table-img"> B Kills</img></th>
-				<th><img src="images/icons/statspage/infectedheadshots1.png" width="25px" height="25px" class="table-img"> Z Headshots</img></th>
-				<th><img src="images/icons/statspage/totalplayers1.png" width="25px" height="25px" class="table-img"> Humanity</img></th>
-				<th><img src="images/icons/statspage/playerdeaths1.png" width="25px" height="25px" class="table-img"> Deaths</img></th>
-				<th><img src="images/icons/statspage/totalplayers1.png" width="25px" height="25px" class="table-img"> Points</img></th>
+				<th>Name</th>
+				<th>Z Kills</th>
+				<th>Murders</th>
+				<th>B Kills</img></th>
+				<th>Z Headshots</img></th>
+				<th>Humanity</img></th>
+				<th>Deaths</img></th>
+				<th>Points</img></th>
 			</thead>
 			<tbody>
 				<?php

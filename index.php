@@ -39,24 +39,30 @@
 		$page = 'home';
 	}
 ?>
-	<?php include('modules/stats-header.php'); ?>
-	<div class="col-md-8">
-		<div class="panel panel-default">
-			<div class="panel-body">
-			<?php
-				if(isset($_GET['leaderboard'])) {
-					include('modules/leaderboard.php');
-				}
-			?>
+				<?php include('modules/stats-header.php'); ?>
+				<div class="row">
+					<div class="col-lg-8">
+					<div class="alert alert-danger fade in">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Error! </strong><span>Wrong username or password.</span>
 			</div>
-		</div>
-	</div>
-	<div class="col-md-2">
-			<?php include('modules/stats.php') ?>
-	</div> 	
-	<?php
-		include('modules/footer.php');
-	?>
+						<div class="panel panel-default">
+							<div class="panel-body">
+							<?php
+							if(isset($_GET['leaderboard'])) {
+								include('modules/leaderboard.php');
+							}
+							?>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<?php include('modules/stats.php') ?>
+				</div> 	
+				<?php
+					include('modules/footer.php');
+				?>
+			</div>
 		</div>
 	</body>
 </html>
