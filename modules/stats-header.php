@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="EN">
 <head>
-	<title><?php echo $sitename ?></title>
+	<title><?php echo $app->config('appName') ?></title>
 	<!--<link rel="stylesheet" href="css/stylesheet.css" type="text/css" />-->
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -107,11 +107,11 @@
 		<div class="container">
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="index.php?module=news"><i class="icon-home icon-color"></i> News</a></li>
-				<li><a href="<?php echo ($page == 'cpanel' ? ' ../index.php?leaderboard ' : ' index.php?leaderboard '); ?>"><i class="icon-home icon-color"></i> Leaderboard</a></li>
+					<li><a href="index.php?module=news"><i class="glyphicon glyphicon-home"></i> News</a></li>
+				<li><a href="<?php echo ($page == 'cpanel' ? ' ../index.php?leaderboard ' : ' index.php?leaderboard '); ?>"><i class="glyphicon glyphicon-stats"></i> Leaderboard</a></li>
 				<?php if ($ManuPanelLink == 1) { ?>
 				<li>
-					<a href="<?php echo ($page == 'cpanel' ? ' ../'.$security.'.php ' : ' '.$security.'.php '); ?>"><i class="icon-dashboard icon-color"></i> Dashboard</a>
+					<a href="<?php echo ($page == 'cpanel' ? ' ../'.$security.'.php ' : ' '.$security.'.php '); ?>"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a>
 				</li>
 				<?php } ?>	
 				</ul>
@@ -141,24 +141,10 @@
       			</div>
       			<div id="navbar1" class="navbar-collapse collapse">
         			<ul class="nav navbar-nav">
-          				<li class="active"><a href="#">Home</a></li>
-          				<li><a href="#">About</a></li>
-          				<li><a href="#">Contact</a></li>
-          				<li class="dropdown">
-            				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            				<ul class="dropdown-menu" role="menu">
-              					<li><a href="#">Action</a></li>
-              					<li><a href="#">Another action</a></li>
-              					<li><a href="#">Something else here</a></li>
-              					<li class="divider"></li>
-              					<li class="dropdown-header">Nav header</li>
-              					<li><a href="#">Separated link</a></li>
-              					<li><a href="#">One more separated link</a></li>
-            				</ul>
-          				</li>
+          				<li><a href="<?php echo ($page == 'cpanel' ? ' ../'.$security.'.php ' : ' '.$security.'.php '); ?>"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a></li>
         			</ul>
         			<div class="row">
-        			<div class="col-sm-3 col-md-3 pull-right">
+        				<div class="col-sm-3 col-md-3 pull-right">
         				<form class="navbar-form">
     						<div class="input-group">
     							<input type="text" class="form-control" placeholder="Search for" aria-label="...">

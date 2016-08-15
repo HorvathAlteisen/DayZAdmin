@@ -1,8 +1,23 @@
 <?php
+	if (version_compare(PHP_VERSION, '5.2.1', '<')) {
+		echo '<h2>Error</h2>';
+		echo '<p>PHP 5.2.1 or higher is required to use ACMS.</p>';
+		echo '<p>You are running '.PHP_VERSION.'</p>';
+		exit;
+	}
+
 	session_start();
+
+	require_once('lib/acms.inc.php');
 	require_once('config.php');
 	require_once('db.php');
 	include('queries.php');
+
+	// Here I start to OOP the whole CP
+
+	$app = ACMS::initialize('config/app.json');
+
+
 	$page = 'home';
 
 	$KillsZ = 0;
@@ -42,22 +57,18 @@
 				<?php include('modules/stats-header.php'); ?>
 				<div class="row">
 					<div class="col-lg-9">
-					<div class="alert alert-danger fade in">
-				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				<strong>Error! </strong><span>Wrong username or password.</span>
-			</div>
-						<div class="panel panel-default">
-							<div class="panel-body">
-							<?php
-							if(isset($_GET['leaderboard'])) {
-								include('modules/leaderboard.php');
-							} else if($_GET['module'] == 'news') {
-								include('modules/news.php');
-							}
-							?>
+						<div class="alert alert-danger fade in">
+							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+							<strong>Error! </strong><span>Wrong username or password.</span>
 						</div>
+						<?php
+									if(isset($_GET['leaderboard'])) {
+										include('modules/leaderboard.php');
+									} else if($_GET['module'] == 'news') {
+										include('modules/news.php');
+									}
+								?>
 					</div>
-				</div>
 				<div class="col-md-3">
 					<?php include('modules/stats.php') ?>
 				</div> 	
