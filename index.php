@@ -51,6 +51,8 @@
 							<?php
 							if(isset($_GET['leaderboard'])) {
 								include('modules/leaderboard.php');
+							} else if($_GET['module'] == 'news') {
+								include('modules/news.php');
 							}
 							?>
 						</div>

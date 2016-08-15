@@ -107,7 +107,7 @@
 		<div class="container">
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="index.php"><i class="icon-home icon-color"></i> News</a></li>
+					<li><a href="index.php?module=news"><i class="icon-home icon-color"></i> News</a></li>
 				<li><a href="<?php echo ($page == 'cpanel' ? ' ../index.php?leaderboard ' : ' index.php?leaderboard '); ?>"><i class="icon-home icon-color"></i> Leaderboard</a></li>
 				<?php if ($ManuPanelLink == 1) { ?>
 				<li>
