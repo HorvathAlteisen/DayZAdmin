@@ -8,6 +8,11 @@ include_once('modules/FlashMessages.class.php');
 $message = new FlashMessages();
 $page = 'dashboard';
 
+// 
+require_once('lib/acms.inc.php');
+$app = ACMS::initialize('config/app.json');
+//
+
 if(isset($_SESSION['login'])) {
     $User = $_SESSION['login'];
     $User_query = $db->GetAll("SELECT * FROM users WHERE login = ?", $User);

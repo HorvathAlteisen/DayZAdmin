@@ -1,7 +1,8 @@
 <div class="panel-default panel">	
 	<div class="panel-body">		
 		<div class="stats-box-inner">
-			<table>
+			<table class="table table-condensed">
+				<tr>
 					<td width="184"><strong>Total Players:</strong></td>
 					<td align="right"><?php echo $num_totalplayers;?></td>
 				</tr>

@@ -15,7 +15,7 @@
 	<div class="panel-body">
 		<div class="page-header">
 		<?php
-			echo "<h2>".$pagetitle."</h1>";
+			echo "<h3>".$pagetitle."</h3>";
 		?>
 			
 		</div>

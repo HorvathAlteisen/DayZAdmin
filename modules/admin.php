@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_SESSION['user_id']) && $accesslvls[0][1] != 'false')
 {
   $pagetitle = "Manage admins";

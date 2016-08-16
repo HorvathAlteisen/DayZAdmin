@@ -17,7 +17,7 @@
 
 	$app = ACMS::initialize('config/app.json');
 
-
+	// End of OOP'ing
 	$page = 'home';
 
 	$KillsZ = 0;
@@ -62,12 +62,12 @@
 							<strong>Error! </strong><span>Wrong username or password.</span>
 						</div>
 						<?php
-									if(isset($_GET['leaderboard'])) {
-										include('modules/leaderboard.php');
-									} else if($_GET['module'] == 'news') {
-										include('modules/news.php');
-									}
-								?>
+							if(isset($_GET['leaderboard'])) {
+								include('modules/leaderboard.php');
+							} else if($_GET['module'] == 'news') {
+								include('modules/news.php');
+							}
+						?>
 					</div>
 				<div class="col-md-3">
 					<?php include('modules/stats.php') ?>

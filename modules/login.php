@@ -92,11 +92,3 @@ $pagetitle = 'Login';
 	<!--  end content -->
 	</div>
 	</div>
-
-		<!-- start footer -->         
-		<?php
-			include('modules/footer.php');
-		?>
-		<!-- end footer -->
-	</body>
-</html>

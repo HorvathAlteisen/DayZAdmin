@@ -53,26 +53,46 @@
 
 ?>
 
-<div class="leaderboard-content">
-	<div class="leaderboard-box">	
+<div class="panel panel-default">
+	<div class="panel-body">
 		<div class="page-header">
-			<?php
-				//echo "<title>".$pagetitle." - ".$sitename."</title>";
-				echo "<h2>".$pagetitle."</h1>";
-
-			?>
+		<?php
+			echo "<h3>".$pagetitle."</h3>";
+		?>
+			
 		</div>
-		<table class="table table-striped">
+		<select class="form-control pull-left" style="width:100px; margin-top: 20px; margin-bottom: 20px;" name="limit" onChange='window.location="index.php?leaderboard<?php if(isset($_GET['sortby'])) { echo '&sortby=' . $_GET['sortby']; } ?><?php if(isset($_GET['sorttype'])) { echo '&sorttype=' . $_GET['sorttype']; } ?>&limit=" + this.value;'>
+            <?php for($option = 10; $option <= 50; $option += 10) {
+                if($option == $limit) {
+			        printf("<option selected>%d</option>\n", $option);
+                } else {
+			        printf("<option>%d</option>\n", $option);
+                }
+            } ?>
+		</select>
+		<select class="form-control pull-right" style="width:150px; margin-top: 20px; margin-bottom: 20px;" name="sorttype" onChange='window.location="index.php?leaderboard<?php if(isset($_GET['sortby'])) { echo '&sortby=' . $_GET['sortby']; } ?><?php if(isset($_GET['limit'])) { echo '&limit=' . $_GET['limit']; } ?>&sorttype=" + this.value;'>
+			<option value="DESC" <?php if($sorttype == "DESC") { echo "selected"; } ?>>Descending</option>
+			<option value="ASC" <?php if($sorttype == "ASC") { echo "selected"; } ?>>Ascending</option>
+		</select>
+		<select class="form-control pull-right" style="width:200px; margin-top: 20px; margin-bottom: 20px;" name="sortby" onChange='window.location="index.php?leaderboard<?php if(isset($_GET['sorttype'])) { echo '&sorttype=' . $_GET['sorttype']; } ?><?php if(isset($_GET['limit'])) { echo '&limit=' . $_GET['limit']; } ?>&sortby=" + this.value;'>
+			<option value="KillsZ" <?php if($sortby == "KillsZ") { echo "selected"; } ?>>Zombie Kills</option>
+			<option value="KillsH" <?php if($sortby == "KillsH") { echo "selected"; } ?>>Human Kills</option>
+			<option value="KillsB" <?php if($sortby == "KillsB") { echo "selected"; } ?>>Bandit Kills</option>
+			<option value="HeadshotsZ" <?php if($sortby == "HeadshotssZ") { echo "selected"; } ?>>Headshots</option>
+			<option value="Humanity" <?php if($sortby == "Humanity") { echo "selected"; } ?>>Humanity</option>
+			<option value="Generation" <?php if($sortby == "Generation") { echo "selected"; } ?>>Deaths</option>
+		</select>
+		<table class="table table-bordered table-striped">
 			<thead>
-				<th>#</th>
-				<th>Name</th>
-				<th>Z Kills</th>
-				<th>Murders</th>
+				<th>#<i class="glyphicon glyphicon-sort"></i></th>
+				<th>Name<i class="glyphicon glyphicon-sort"></i></th>
+				<th>Z Kills<i class="glyphicon glyphicon-sort"></i></th>
+				<th>Murders<i class="glyphicon glyphicon-sort"></i></th>
 				<th>B Kills</img></th>
-				<th>Z Headshots</img></th>
-				<th>Humanity</img></th>
-				<th>Deaths</img></th>
-				<th>Points</img></th>
+				<th>Z Headshots<i class="glyphicon glyphicon-sort"></i></img></th>
+				<th>Humanity<i class="glyphicon glyphicon-sort"></i></img></th>
+				<th>Deaths<i class="glyphicon glyphicon-sort"></i></img></th>
+				<th>Points<i class="glyphicon glyphicon-sort"></i></img></th>
 			</thead>
 			<tbody>
 				<?php
@@ -115,26 +135,5 @@
 				?>
 			</tbody>
 		</table>
-		<select class="form-control pull-left" style="width:100px; margin-top: 20px; margin-bottom: 20px;" name="limit" onChange='window.location="index.php?leaderboard<?php if(isset($_GET['sortby'])) { echo '&sortby=' . $_GET['sortby']; } ?><?php if(isset($_GET['sorttype'])) { echo '&sorttype=' . $_GET['sorttype']; } ?>&limit=" + this.value;'>
-            <?php for($option = 10; $option <= 50; $option += 10) {
-                if($option == $limit) {
-			        printf("<option selected>%d</option>\n", $option);
-                } else {
-			        printf("<option>%d</option>\n", $option);
-                }
-            } ?>
-		</select>
-		<select class="form-control pull-right" style="width:150px; margin-top: 20px; margin-bottom: 20px;" name="sorttype" onChange='window.location="index.php?leaderboard<?php if(isset($_GET['sortby'])) { echo '&sortby=' . $_GET['sortby']; } ?><?php if(isset($_GET['limit'])) { echo '&limit=' . $_GET['limit']; } ?>&sorttype=" + this.value;'>
-			<option value="DESC" <?php if($sorttype == "DESC") { echo "selected"; } ?>>Descending</option>
-			<option value="ASC" <?php if($sorttype == "ASC") { echo "selected"; } ?>>Ascending</option>
-		</select>
-		<select class="form-control pull-right" style="width:200px; margin-top: 20px; margin-bottom: 20px;" name="sortby" onChange='window.location="index.php?leaderboard<?php if(isset($_GET['sorttype'])) { echo '&sorttype=' . $_GET['sorttype']; } ?><?php if(isset($_GET['limit'])) { echo '&limit=' . $_GET['limit']; } ?>&sortby=" + this.value;'>
-			<option value="KillsZ" <?php if($sortby == "KillsZ") { echo "selected"; } ?>>Zombie Kills</option>
-			<option value="KillsH" <?php if($sortby == "KillsH") { echo "selected"; } ?>>Human Kills</option>
-			<option value="KillsB" <?php if($sortby == "KillsB") { echo "selected"; } ?>>Bandit Kills</option>
-			<option value="HeadshotsZ" <?php if($sortby == "HeadshotssZ") { echo "selected"; } ?>>Headshots</option>
-			<option value="Humanity" <?php if($sortby == "Humanity") { echo "selected"; } ?>>Humanity</option>
-			<option value="Generation" <?php if($sortby == "Generation") { echo "selected"; } ?>>Deaths</option>
-		</select>
 	</div>
 </div>
