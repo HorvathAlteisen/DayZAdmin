@@ -28,10 +28,10 @@
 
 	<!-- Map -->
 	<link rel="stylesheet" href="css/leaflet.css" type="text/css" />
-		<link rel="stylesheet" href="css/map.css" type="text/css" />
-		<script src="js/leaflet.js" type="text/javascript"></script>
-		<script src="js/map.js" type="text/javascript"></script>
-		<script src="js/map/<?php echo $app->config('map'); ?>.js"></script>
+	<link rel="stylesheet" href="css/map.css" type="text/css" />
+	<script src="js/leaflet.js" type="text/javascript"></script>
+	<script src="js/map.js" type="text/javascript"></script>
+	<script src="js/map/<?php echo $app->config('map'); ?>.js"></script>
 	
 	<script>
 		$(document).ready(function(){
@@ -156,6 +156,10 @@
           				<li>
           					<a href="index.php?module=map">
           					<i class="glyphicon glyphicon-map-marker"></i> Map</a>
+          				</li>
+          				<li>
+          					<a href="index.php?module=config">
+          					<i class="glyphicon glyphicon-file"></i> View Config</a>
           				</li>
         			</ul>
         			<div class="row">

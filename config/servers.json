@@ -1,0 +1,14 @@
+{
+	"dataBase": {
+		"dbHost": "127.0.0.1",
+		"dbPort": 3306,
+		"dbUser": "root",
+		"dbPassword": "",
+		"db": "dayz-1-8-8"
+	}, "rcon": {
+		"rconPassword": "123456"
+	}, "modServer": {
+		"serverIp": "127.0.0.1",
+		"serverPort": 2302
+	}
+}

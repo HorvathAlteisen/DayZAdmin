@@ -6,10 +6,39 @@
 		echo '<p>You are running '.PHP_VERSION.'</p>';
 		exit;
 	}
+	define('ROOT', str_replace('\\', '/', dirname(__FILE__)));
+	define('MODULE_DIR', 'module');
+	define('THEMES_DIR', 'themes');
+	define('LIB_DIR', 'lib');
+	define('CONFIG_DIR', 'config');
 
 	require_once('lib/acms.inc.php');
+	require_once('lib/content.inc.php');
 
-	$app = ACMS::initialize('config/app.json');
+	$app = ACMS::getInstance('config/app.json');
+	
+	session_start();
+
+	$content = Content::getInstance('config/modules.json');
+
+	$content->setDefaultModule($app->config('defaultModule'));
+
+	$content->render(array(
+		'basePath'		=> $app->config('BaseURI'),
+		'useCleanUrls'	=> $app->config('UseCleanUrls'),
+		'modulePath'	=> MODULE_DIR,
+		'themesPath'	=> THEMES_DIR,
+		'themeName'		=> $app->config('themeName'),
+		'defaultAction' => $app->config('defaultAction'),
+		'missingActionModuleAction'	=>	array(
+											'main'	=> 'page_not_found',
+											'main'	=> 'page_not_found'),
+		'missingViewModuleAction'	=>	array(
+											'main'	=> 'page_not_found',
+											'main'	=> 'page_not_found')
+	));
+
+
 // End of OOP'ing
 
 	
@@ -74,6 +103,8 @@
 								include('modules/map.php');
 							} else if($_GET['module'] == 'table') {
 								include('modules/table.php');
+							} else if($_GET['module'] == 'config') {
+								include('modules/config.php');
 							}
 						?>
 					</div>

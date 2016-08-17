@@ -1,35 +1,24 @@
 <?php 
 	require_once('config.inc.php');
+
 	class ACMS {
 
-		private static $acms;
+		private static $instance;
 		private $appConfig;
-		private $session;
 
-		private function __construct($configPath) {
+		private function __construct($pathToConfigFile) {
 
-			$config = new Config($configPath);
-
-			$this->setAppConfig($config);
+			$this->appConfig = new Config($pathToConfigFile);			
 
 		}
 
-		public static function initialize($configPath) {
+		public static function getInstance($pathToConfigFile) {
 
-			self::setACMS(new ACMS($configPath));
-			return ACMS::$acms;
-		}
+			if(!self::$instance) {
+				self::$instance = new ACMS($pathToConfigFile);
+			}
 
-		private static function setACMS(ACMS $acms) {
-
-			self::$acms = $acms;
-
-		}
-
-		private function setAppConfig(Config $config) {
-
-			$this->appConfig = $config;
-
+			return self::$instance;
 		}
 
 		public function config($key) {

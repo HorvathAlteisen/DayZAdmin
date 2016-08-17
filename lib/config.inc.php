@@ -18,9 +18,14 @@ class Config {
 
 	public function __construct($pathToConfigFile) {
 
-		$file = file_get_contents($pathToConfigFile);
-		$this->configArr = json_decode($file, true);
+		if(is_array($pathToConfigFile)) {
+			$this->configArr = &$configArr;
+		} else {
 
+			
+			$file = file_get_contents($pathToConfigFile);
+			$this->configArr = json_decode($file, true);
+		}
 	}
 	
 

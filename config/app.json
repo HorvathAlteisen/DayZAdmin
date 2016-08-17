@@ -1,5 +1,8 @@
 {
 	"appName": "DayZ Administration",
+	"defaultModule": "main",
+	"defaultAction": "news",
+	"defaultTheme":	"dayz",
 	"enableClock": true,
 	"enableTracking": true,
 	"maxTrackingPositions": 50,
@@ -7,13 +10,6 @@
 	"keepTracksAfterLogout": true,
 	"refreshPlayersOnline": 60, 
 	"iID": 1,
-	"serverIp": "127.0.0.1",
-	"rconPassword": "123456",
-	"serverPort": 2302,
 	"timeOffset": 0,
-	"map": "chernarus",
-	"dbHost": "127.0.0.1",
-	"dbPort": 3306,
-	"dbUser": "root",
-	"dbPassword": "password"
+	"map": "chernarus"	
 }
