@@ -1,4 +1,5 @@
 <?php
+// Here I start to OOP the whole CP
 	if (version_compare(PHP_VERSION, '5.2.1', '<')) {
 		echo '<h2>Error</h2>';
 		echo '<p>PHP 5.2.1 or higher is required to use ACMS.</p>';
@@ -6,16 +7,19 @@
 		exit;
 	}
 
-	session_start();
-
 	require_once('lib/acms.inc.php');
+
+	$app = ACMS::initialize('config/app.json');
+// End of OOP'ing
+
+	
 	require_once('config.php');
 	require_once('db.php');
 	include('queries.php');
 
 	// Here I start to OOP the whole CP
 
-	$app = ACMS::initialize('config/app.json');
+	
 
 	// End of OOP'ing
 	$page = 'home';

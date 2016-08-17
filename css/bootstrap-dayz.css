@@ -78,12 +78,12 @@ table thead th {
 	font-weight: normal;
 }
 
-table>tbody>tr>td, 
-table>tbody>tr>th, 
-table>tfoot>tr>td, 
-table>tfoot>tr>th, 
-table>thead>tr>td, 
-table>thead>tr>th {
+.panel.panel-body>table>tbody>tr>td, 
+.panel.panel-body>table>tbody>tr>th, 
+.panel.panel-body>table>tfoot>tr>td, 
+.panel.panel-body>table>tfoot>tr>th, 
+.panel.panel-body>table>thead>tr>td, 
+.panel.panel-body>table>thead>tr>th {
     padding: 8px;
     line-height: 1.42857143;
     vertical-align: top;

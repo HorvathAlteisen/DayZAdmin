@@ -1,5 +1,6 @@
 <?php
     require_once('queries.php');
+    require_once('modules/rcon.php');
 	//ini_set( "display_errors", 0);
 	//error_reporting (E_ALL ^ E_NOTICE);		<th class="table-header-repeat line-left" width="15%"><a href="">IP Address</a></th>
 		//<th class="table-header-repeat line-left" width="5%"><a href="">Ping</a></th>

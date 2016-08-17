@@ -4,6 +4,7 @@
 
 		private static $acms;
 		private $appConfig;
+		private $session;
 
 		private function __construct($configPath) {
 

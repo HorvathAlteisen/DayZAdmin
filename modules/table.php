@@ -1,9 +1,17 @@
 <?php
 include ('config.php');
 include ('queries.php');
+include ('modules/tables/rows.php');
 
-if (isset($_SESSION['user_id']))
-{	
+if (isset($_GET["show"])) {
+		$show = $_GET["show"];
+	} else {
+		$show = 0;
+	}
+
+
+/*if (isset($_SESSION['user_id']))
+{*/	
 	$pnumber = 0;
 	$tableheader = '';
 	$tablerows = '';
@@ -117,9 +125,9 @@ if (isset($_SESSION['user_id']))
 	</table>
 	<div class="clear">&nbsp;</div>
 <?php
-}
+/*}
 else
 {
 	header('Location: '.$security.'.php');
-}
+}*/
 ?>
