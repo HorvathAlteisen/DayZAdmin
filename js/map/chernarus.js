@@ -14,7 +14,7 @@ function InitMap() {
 	})
 
 	// Set up the map
-	map = new L.Map('map', {center: [7.5, 7], zoom: 2, minZoom: 2, maxZoom: 6, markerZoomAnimation: false, attributionControl: false, crs: crsChernarus});
+	map = new L.Map('map', {center: [7.5, 7], zoom: 2, minZoom: 2, maxZoom: 100, markerZoomAnimation: false, attributionControl: false, crs: crsChernarus});
 
 	// Create tile layer
 	map.addLayer(tiles);

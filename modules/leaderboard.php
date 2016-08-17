@@ -84,15 +84,15 @@
 		</select>
 		<table class="table table-bordered table-striped">
 			<thead>
-				<th>#<i class="glyphicon glyphicon-sort"></i></th>
-				<th>Name<i class="glyphicon glyphicon-sort"></i></th>
-				<th>Z Kills<i class="glyphicon glyphicon-sort"></i></th>
-				<th>Murders<i class="glyphicon glyphicon-sort"></i></th>
-				<th>B Kills</img></th>
-				<th>Z Headshots<i class="glyphicon glyphicon-sort"></i></img></th>
-				<th>Humanity<i class="glyphicon glyphicon-sort"></i></img></th>
-				<th>Deaths<i class="glyphicon glyphicon-sort"></i></img></th>
-				<th>Points<i class="glyphicon glyphicon-sort"></i></img></th>
+				<th class="sorting">#</th>
+				<th class="sorting">Name</th>
+				<th class="sorting">Z Kills</th>
+				<th class="sorting">Murders</th>
+				<th class="sorting">B Kills</th>
+				<th class="sorting">Z Headshots</th>
+				<th class="sorting">Humanity</th>
+				<th class="sorting">Deaths</th>
+				<th class="sorting">Points</th>
 			</thead>
 			<tbody>
 				<?php

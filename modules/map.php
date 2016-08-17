@@ -1,9 +1,9 @@
 <?php
-include('config.php');
+/*include('config.php');*/
 
 if (isset($_SESSION['user_id']) && $accesslvls[0][0] != 'false')
 {
-	switch($show) {
+	/*switch($show) {
 	case 0:
 		$title = 'Recent Players';
 		break;
@@ -35,15 +35,24 @@ if (isset($_SESSION['user_id']) && $accesslvls[0][0] != 'false')
 		$title = 'Buildables';
 		break;
 	}
-	echo '<div id="page-heading"><title>'.$title.' - '.$sitename.'</title><h1>'.$title.'&nbsp;(<span id="count">0</span>)</h1></div>';
+
+	echo '<div id="page-heading"><title>'.$title.' - '.$sitename.'</title><h1>'.$title.'&nbsp;(<span id="count">0</span>)</h1></div>';*/
+
+if (isset($_GET["show"])) {
+		$show = $_GET["show"];
+	} else {
+		$show = 0;
+	}
+
+
 	$db->Execute("INSERT INTO `logs`(`action`, `user`, `timestamp`) VALUES ('Viewing map',?,NOW())", $_SESSION['login']);
 	include('modules/leaf.php');
-}
+}/*
 else
 {
 	if ($accesslvls[0][0] != 'true') {
 		$message->add('danger', "You dont have enough access to view this");
 		$message->display();
 	}
-}
+}*/
 ?>

@@ -66,6 +66,10 @@
 								include('modules/leaderboard.php');
 							} else if($_GET['module'] == 'news') {
 								include('modules/news.php');
+							} else if($_GET['module'] == 'map') {
+								include('modules/map.php');
+							} else if($_GET['module'] == 'table') {
+								include('modules/table.php');
 							}
 						?>
 					</div>

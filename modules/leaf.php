@@ -1,19 +1,23 @@
 <?php
 
-if (isset($_SESSION['user_id']))
-{
-	?>
-
-	<head>
-		<link rel="stylesheet" href="css/leaflet.css" type="text/css" />
-		<link rel="stylesheet" href="css/map.css" type="text/css" />
-		<script src="js/leaflet.js" type="text/javascript"></script>
-		<script src="js/map.js" type="text/javascript"></script>
-		<script src="js/map/<?php echo $map; ?>.js"></script>
-	</head>
+/*if (isset($_SESSION['user_id']))
+{*/
+	$pagetitle = "Chernarus";
+?>
 	
-	<div id="map"></div>
-	
+	<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="page-header">
+		<?php
+			echo "<h3>".$pagetitle."</h3>";
+		?>
+			
+		</div>
+		<div id="map"></div>
+	</div>
+	<div class="panel-footer">
+	</div>
+</div>
 	<script>
 	InitMap();
 	
@@ -50,9 +54,9 @@ if (isset($_SESSION['user_id']))
 
 	// store player/vehicle path
 	var mapMarkersPolylines = [];
-	var enableTracking = <?php echo $enableTracking; ?>;
-	var keepTracksAfterLogout = <?php echo $keepTracksAfterLogout; ?>;
-	var maxTrackingPositions = <?php echo $maxTrackingPositions; ?>;
+	var enableTracking = <?php echo $app->config('enableTracking'); ?>;
+	var keepTracksAfterLogout = <?php echo $app->config('keepTracksAfterLogout'); ?>;
+	var maxTrackingPositions = <?php echo $app->config('maxTrackingPositions'); ?>;
 	var trackinfowindow = new L.popup({ content: "loading..." });
 
 	var trackPolyline = L.Polyline.extend({
@@ -103,11 +107,11 @@ if (isset($_SESSION['user_id']))
 	getData(<?php echo $show; ?>);
 	</script>
 
-<?php
+<?php/*
 }
 else
 {
 	header('Location: index.php');
 }
-
+*/
 ?>

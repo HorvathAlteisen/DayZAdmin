@@ -4,6 +4,7 @@
 	"enableTracking": true,
 	"maxTrackingPositions": 50,
 	"keepTrackingPositions": 50,
+	"keepTracksAfterLogout": true,
 	"refreshPlayersOnline": 60, 
 	"iID": 1,
 	"serverIp": "127.0.0.1",

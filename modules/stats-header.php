@@ -25,6 +25,13 @@
 	<script type="text/javascript" src="js/plugins/jqplot.categoryAxisRenderer.min.js"></script>
 	<script type="text/javascript" src="js/plugins/jqplot.barRenderer.min.js"></script>
 	<script type="text/javascript" src="js/plugins/jqplot.jqplot.donutRenderer.min.js"></script>
+
+	<!-- Map -->
+	<link rel="stylesheet" href="css/leaflet.css" type="text/css" />
+		<link rel="stylesheet" href="css/map.css" type="text/css" />
+		<script src="js/leaflet.js" type="text/javascript"></script>
+		<script src="js/map.js" type="text/javascript"></script>
+		<script src="js/map/<?php echo $app->config('map'); ?>.js"></script>
 	
 	<script>
 		$(document).ready(function(){
@@ -109,13 +116,12 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="index.php?module=news"><i class="glyphicon glyphicon-home"></i> News</a></li>
-				<li><a href="<?php echo ($page == 'cpanel' ? ' ../index.php?leaderboard ' : ' index.php?leaderboard '); ?>"><i class="glyphicon glyphicon-stats"></i> Leaderboard</a></li>
-				<?php if ($ManuPanelLink == 1) { ?>
-				<li class="divider-vertical"></li>
-				<li>
-					<a href="<?php echo ($page == 'cpanel' ? ' ../'.$security.'.php ' : ' '.$security.'.php '); ?>"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a>
-				</li>
-				<?php } ?>	
+					<li><a href="<?php echo ($page == 'cpanel' ? ' ../index.php?leaderboard ' : ' index.php?leaderboard '); ?>"><i class="glyphicon glyphicon-stats"></i> Leaderboard</a></li>
+					<li><a href="index.php?module=table"><i class="glyphicon glyphicon-book"></i> Database</a></li>
+					<?php if ($ManuPanelLink == 1) { ?>
+					<li class="divider-vertical"></li>
+					<li><a href="<?php echo ($page == 'cpanel' ? ' ../'.$security.'.php ' : ' '.$security.'.php '); ?>"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a></li>
+					<?php } ?>	
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#" data-toggle="modal" data-target="#SignUp"><i class="glyphicon glyphicon-user"></i> Sign up</a></li>
@@ -139,11 +145,18 @@
         				<span class="icon-bar"></span>
         				<span class="icon-bar"></span>
         			</button>
-        			<a class="navbar-brand" href="http://disputebills.com"><img src="images/DayZAdmin.png" alt="Dispute Bills"></a>
+        			<a class="navbar-brand" href="deadseriouz.rocks"><img src="images/DayZAdmin.png" alt="Dispute Bills"></a>
       			</div>
       			<div id="navbar1" class="navbar-collapse collapse">
         			<ul class="nav navbar-nav">
-          				<li><a href="<?php echo ($page == 'cpanel' ? ' ../'.$security.'.php ' : ' '.$security.'.php '); ?>"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a></li>
+          				<li>
+          					<a href="<?php echo ($page == 'cpanel' ? ' ../'.$security.'.php ' : ' '.$security.'.php '); ?>">
+          					<i class="glyphicon glyphicon-dashboard"></i> Dashboard</a>
+          				</li>
+          				<li>
+          					<a href="index.php?module=map">
+          					<i class="glyphicon glyphicon-map-marker"></i> Map</a>
+          				</li>
         			</ul>
         			<div class="row">
         				<div class="col-sm-3 col-md-3 pull-right">

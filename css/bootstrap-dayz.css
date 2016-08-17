@@ -32,3 +32,61 @@
         display: none;
      }
 }
+
+thead .sorting_asc:after {
+	content: "\e155";
+}
+
+table thead .sorting:after {
+    opacity: 0.2;
+    content: "\e150";
+}
+
+thead .sorting:after, 
+thead .sorting_asc:after, 
+thead .sorting_desc:after, 
+thead .sorting_asc_disabled:after, 
+thead .sorting_desc_disabled:after {
+	position: absolute;
+    bottom: 8px;
+    right: 8px;
+    display: block;
+    font-family: 'Glyphicons Halflings';
+    opacity: 0.5;
+}
+
+table thead>tr>th.sorting_asc, 
+table thead>tr>th.sorting_desc, 
+table thead>tr>th.sorting, 
+table thead>tr>td.sorting_asc, 
+table thead>tr>td.sorting_desc, 
+table thead>tr>td.sorting {
+    padding-right: 30px;
+}
+
+table thead .sorting, 
+table thead .sorting_asc, 
+table thead .sorting_desc, 
+table thead .sorting_asc_disabled, 
+table thead .sorting_desc_disabled {
+    cursor: pointer;
+    position: relative;
+}
+
+table thead th {
+	font-style: normal;
+	font-weight: normal;
+}
+
+table>tbody>tr>td, 
+table>tbody>tr>th, 
+table>tfoot>tr>td, 
+table>tfoot>tr>th, 
+table>thead>tr>td, 
+table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
