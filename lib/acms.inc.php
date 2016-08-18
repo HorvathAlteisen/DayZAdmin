@@ -4,11 +4,11 @@
 	class ACMS {
 
 		private static $instance;
-		private $appConfig;
+		private static $appConfig;
 
 		private function __construct($pathToConfigFile) {
 
-			$this->appConfig = new Config($pathToConfigFile);			
+			self::$appConfig = new Config($pathToConfigFile);			
 
 		}
 
@@ -21,9 +21,9 @@
 			return self::$instance;
 		}
 
-		public function config($key) {
+		public static function config($key) {
 
-			return $this->appConfig->get($key);
+			return self::$appConfig->get($key);
 
 		}
 	}

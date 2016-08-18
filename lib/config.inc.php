@@ -19,7 +19,7 @@ class Config {
 	public function __construct($pathToConfigFile) {
 
 		if(is_array($pathToConfigFile)) {
-			$this->configArr = &$configArr;
+			$this->configArr = &$pathToConfigFile;
 		} else {
 
 			

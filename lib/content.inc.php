@@ -39,6 +39,17 @@ class Content {
 		$defaultAction	= $config->get('defaultAction');
 		$missingActionModuleAction	= $config->get('missingActionModuleAction');
 		$missingViewModuleAction	= $config->get('missingViewModuleAction');
+
+
+		$include = sprintf("%s/%s/%s.php",$config->get("themesPath"),$config->get('themeName'),"header");
+		if (file_exists($include)) {
+			include($include);
+		}
+	}
+
+	private function get() {
+
+
 	}
 }
 ?>
