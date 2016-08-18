@@ -15,8 +15,10 @@
 	require_once('config.php');
 	require_once('lib/acms.inc.php');
 	require_once('lib/content.inc.php');
-
+try {
 	session_start();
+
+	echo 'test try';
 
 	ACMS::getInstance('config/app.json');
 
@@ -38,4 +40,9 @@
 											'main'	=> 'page_not_found',
 											'main'	=> 'page_not_found')
 	));
+} catch(Exception $e) {
+
+	echo $e->getMessage();
+
+}
 ?>

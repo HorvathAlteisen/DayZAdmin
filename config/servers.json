@@ -6,7 +6,10 @@
 		"dbPassword": "",
 		"db": "dayz-1-8-8"
 	}, "rcon": {
-		"rconPassword": "123456"
+		"rconUser": "admin",
+		"rconPassword": "password",
+		"rconPassword": "123456",
+		"rcon": "",
 	}, "modServer": {
 		"serverIp": "127.0.0.1",
 		"serverPort": 2302
