@@ -30,82 +30,109 @@ class Content {
 		$this->defaultModule = $defaultModule;
 	}
 
-	public function render($config = array()) {
-
-		echo 'test Content';
-
-		$config 		= new Config($config);
-		$arguments		= $config->get('arguments');
-		$modulePath		= $config->get('modulePath');
-		$themesPath		= $config->get('themesPath');
-		$defaultModule  = $config->get('defaultModule');
-		$themeName		= $config->get('themeName');
-		$defaultAction	= $config->get('defaultAction');
-		$missingActionModuleAction	= $config->get('missingActionModuleAction');
-		$missingViewModuleAction	= $config->get('missingViewModuleAction');
-
-
-		/*$include = sprintf("%s/%s/%s.php",$config->get("themesPath"),$config->get('themeName'),"header");
-		if (file_exists($include)) {
-			include($include);
-		}*/
-
-		if(!$defaultModule) {
-
-			throw new ACMSException('');
-
-		} else if(!$defaultAction) {
-
-			throw new ACMSException('');
-
+	public function render($options = array())
+	{
+		$config                    = new Config($options);
+		$basePath                  = $config->get('basePath');
+		$paramsArr                 = $config->get('params');
+		$modulePath                = $config->get('modulePath');
+		$themePath                 = $config->get('themePath');
+		$themeName                 = $config->get('themeName');
+		$defaultModule             = $config->get('defaultModule');
+		$defaultAction             = $config->get('defaultAction');
+		$missingActionModuleAction = $config->get('missingActionModuleAction');
+		$missingViewModuleAction   = $config->get('missingViewModuleAction');
+		$useCleanUrls              = $config->get('useCleanUrls');
+		
+		if (!$defaultModule && $this->defaultModule) {
+			$defaultModule = $this->defaultModule;
 		}
-
-		if(!$arguments) {
-			$arguments = &$_REQUEST;
+		if (!$defaultAction && $this->defaultAction) {
+			$defaultAction = $this->defaultAction;
 		}
-
-		$args = new Config($parameters);
-		$baseURI = ACMS::config('baseURI');
-
-		if($args->get('module')) {
-			$safetyArr = array('..', '/', '\\');
-			$moduleName = str_replace($safetyArr, '', $arg->get('action'));
-
-			if($args->get('action')) {
-				$actionName = str_replace($safetyArr, '', $args->get('action'));
-			} else {
+		
+		if (!$defaultModule) {
+			throw new ACMSException('Please set the default module with $dispatcher->setDefaultModule()');
+		}
+		elseif (!$defaultAction) {
+			throw new ACMSException('Please set the default action with $dispatcher->setDefaultAction()');
+		}
+		
+		if (!$paramsArr) {
+			$paramsArr = &$_REQUEST;
+		}
+		
+		// Provide easier access to parameters.
+		$params  = new Config($paramsArr);
+		$baseURI = ACMS::config('BaseURI');
+		
+		if ($params->get('module')) {
+			$safetyArr  = array('..', '/', '\\');
+			$moduleName = str_replace($safetyArr, '', $params->get('module'));
+			if ($params->get('action')) {
+				$actionName = str_replace($safetyArr, '', $params->get('action'));
+			}
+			else {
 				$actionName = $defaultAction;
 			}
-
-		} elseif(!$args->get('module') && !$args->get('action')) {
-			$moduleName = $defaultModule;
-			$actionName = $actionName;
 		}
-
-
-		$args->set('module', $moduleName);
-		$args->set('action', $actionName);
-
-		$templateArgs = array(
-			'args'		=> $args,
-			'basePath'	=> $basePath,
-			'modulePath'=> $moduleName,
-			'themePath'	=> $themeName,
-			'themeName'	=> $actionName,
-			'actionName'=> $actionName,
-			'viewName'	=> $actionName,
-			'headerName'=> 'header',
-			'footerName'=> 'footer',
+		elseif (ACMS::config('UseCleanUrls')) {
+			$baseURI    = preg_replace('&/+&', '/', rtrim($baseURI, '/')).'/';
+			$requestURI = preg_replace('&/+&', '/', rtrim($_SERVER['REQUEST_URI'], '/')).'/';
+			$requestURI = preg_replace('&\?.*?$&', '', $requestURI);
+			$components = explode('/', trim((string)substr($requestURI, strlen($baseURI)), '/'));
+			$moduleName = empty($components[0]) ? $defaultModule : $components[0];
+			$actionName = empty($components[1]) ? $defaultAction : $components[1];
+		}
+		elseif (!$params->get('module') && !$params->get('action')) {
+			$moduleName = $defaultModule;
+			$actionName = $defaultAction;
+		}
+		
+		// Authorization handling.
+		/*$auth = Authorization::getInstance();
+		if ($auth->actionAllowed($moduleName, $actionName) === false) {
+			if (!Flux::$sessionData->isLoggedIn()) {
+				Flux::$sessionData->setMessageData('Please log-in to continue.');
+				$this->loginRequired($baseURI);
+			}
+			else {
+				$moduleName = 'unauthorized';
+				$actionName = $this->defaultAction;
+			}
+		}*/
+		
+		$params->set('module', $moduleName);
+		$params->set('action', $actionName);
+		
+		$templateArray  = array(
+			'params'                    => $params,
+			'basePath'                  => $basePath,
+			'modulePath'                => $modulePath,
+			'moduleName'                => $moduleName,
+			'themePath'                 => $themePath,
+			'themeName'                 => $themeName,
+			'actionName'                => $actionName,
+			'viewName'                  => $actionName,
+			'headerName'                => 'header',
+			'footerName'                => 'footer',
 			'missingActionModuleAction' => $missingActionModuleAction,
-			'missingViewModuleAction'	=> $missingViewModuleAction,
-			'useCleanUrls'				=> $useCleanUrls
+			'missingViewModuleAction'   => $missingViewModuleAction,
+			'useCleanUrls'              => $useCleanUrls
 		);
-
-		echo 'test Content';
-
-		$templateArguments	= new Config($templateArgs);
-		$template = Template::getInstance($templateArguments);
-
+		$templateConfig = new Config($templateArray);
+		$template       = Template::getInstance($templateConfig);
+		
+		// Default data available to all actions and views.
+		/*
+		$data = array(
+			'auth'    => Flux_Authorization::getInstance(),
+			'session' => Flux::$sessionData,
+			'params'  => $params
+		);
+		$template->setDefaultData($data);*/
+		
+		// Render template! :D
 		$template->render();
 	}
 }

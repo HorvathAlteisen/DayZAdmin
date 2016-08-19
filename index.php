@@ -15,7 +15,7 @@
 	require_once('config.php');
 	require_once('lib/acms.inc.php');
 	require_once('lib/content.inc.php');
-try {
+
 	session_start();
 
 	echo 'test try';
@@ -33,16 +33,7 @@ try {
 		'themesPath'	=> THEMES_DIR,
 		'themeName'		=> ACMS::config('defaultTheme'),
 		'defaultAction' => ACMS::config('defaultAction'),
-		'missingActionModuleAction'	=>	array(
-											'main'	=> 'page_not_found',
-											'main'	=> 'page_not_found'),
-		'missingViewModuleAction'	=>	array(
-											'main'	=> 'page_not_found',
-											'main'	=> 'page_not_found')
+		'missingActionModuleAction'	=>	array('main', 'page_not_found'),
+		'missingViewModuleAction'	=>	array('main', 'page_not_found')
 	));
-} catch(Exception $e) {
-
-	echo $e->getMessage();
-
-}
 ?>
