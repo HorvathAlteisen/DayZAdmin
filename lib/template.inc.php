@@ -43,10 +43,9 @@ class Template {
 
 	public function render() {
 
-		//$this->actionPath = sprintf("%s/%s/%s.php", $this->modulePath, $this->moduleName, $this->actionName);
-		$this->actionPath = $this->join(DIRECTORY_SEPARATOR, array($this->modulePath, $this->moduleName, $this->actionName));
+		$this->actionPath = $this->createPath(array($this->modulePath, $this->moduleName, $this->actionName));
 
-		if(!file_exists($this->actionPath.'.php')) {
+		if(!file_exists($this->actionPath)) {
 
 			$this->moduleName = $this->missingActionModuleAction[0];
 			$this->actionName = $this->missingActionModuleAction[1];
@@ -54,35 +53,36 @@ class Template {
 
 		}
 
-		$this->viewPath = $this->join(DIRECTORY_SEPARATOR, array($this->moduleName, $this->actionName));
+		$this->viewPath = $this->createPath(array($this->themesPath, $this->themeName,$this->moduleName, $this->actionName));
 
-		//$this->viewPath = sprintf("%s/%s.php", $this->moduleName, $this->actionName);
-
-		if(!file_exists($this->viewPath.'.php')) {
+		if(!file_exists($this->viewPath)) {
 			if ( $this->viewPath === false ) {
 				$this->moduleName = $this->missingViewModuleAction[0];
 				$this->actionName = $this->missingViewModuleAction[1];
 				$this->viewName   = $this->missingViewModuleAction[1];
-				// = join(DIRECTORY_SEPARATOR, array('root', 'lib', 'file.php');
-				$this->actionPath = sprintf('%s/%s/%s.php', $this->modulePath, $this->moduleName, $this->actionName);
-				$this->viewPath   = $this->themesPath(sprintf('%s/%s.php', $this->moduleName, $this->viewName), true);
+
+				$this->actionPath = $this->createPath($this->modulePath, $this->moduleName, $this->actionName);
+				$this->viewPath   = $this->createPath($this->moduleName, $this->viewName);
 			}
 		}
 
+		// Action File
+		include($this->actionPath);
 
 		// Header File
-		include(join(DIRECTORY_SEPARATOR, array($this->themesPath, $this->themeName, $this->headerName)).'.php');
+		include($this->createPath(array($this->themesPath, $this->themeName, $this->headerName)));
 
 		// Content File
+		include($this->viewPath);
 
 		// footer file
-		include(join(DIRECTORY_SEPARATOR, array($this->themesPath, $this->themeName, $this->footerName)).'.php');
+		include($this->createPath(array($this->themesPath, $this->themeName, $this->footerName)));
 
 	}
 
-	private function join($join = array()) {
+	private function createPath($join = array()) {
 
-		return sprintf('%s.php', join(DIRECTORY_SEPARATOR,$join), '.php');
+		return sprintf('%s.php', join(DIRECTORY_SEPARATOR,$join));
 
 	}
 }

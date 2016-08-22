@@ -36,7 +36,7 @@ class Content {
 		$basePath                  = $config->get('basePath');
 		$paramsArr                 = $config->get('params');
 		$modulePath                = $config->get('modulePath');
-		$themesPath                 = $config->get('themesPath');
+		$themesPath                = $config->get('themesPath');
 		$themeName                 = $config->get('themeName');
 		$defaultModule             = $config->get('defaultModule');
 		$defaultAction             = $config->get('defaultAction');

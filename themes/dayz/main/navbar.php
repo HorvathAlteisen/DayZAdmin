@@ -1,5 +1,5 @@
 <?php if(!defined('ROOT')) exit;?>
-<div class="navbar navbar-default navbar-static-top">
+<div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">

@@ -1,7 +1,7 @@
 {
 	"appName": "DayZ Administration",
 	"defaultModule": "main",
-	"defaultAction": "news",
+	"defaultAction": "view",
 	"defaultTheme":	"dayz",
 	"enableClock": true,
 	"enableTracking": true,

@@ -7,12 +7,11 @@
 	}
 
 	define('ROOT', str_replace('\\', '/', dirname(__FILE__)));
-	define('MODULE_DIR', 'module');
+	define('MODULE_DIR', 'modules');
 	define('THEMES_DIR', 'themes');
 	define('LIB_DIR', 'lib');
 	define('CONFIG_DIR', 'config');
 
-	require_once('config.php');
 	require_once('lib/acms.inc.php');
 	require_once('lib/content.inc.php');
 

@@ -1,12 +1,4 @@
 <?php 
-	/*require_once('lib/page.inc.php');
-
-	$page = new Page();
-
-	$page->setTitle*/
-
-
-
 	$pagetitle = "News";
 
 
