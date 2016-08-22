@@ -137,7 +137,7 @@
           					<i class="glyphicon glyphicon-dashboard"></i> Dashboard</a>
           				</li>
           				<li>
-          					<a href="index.php?module=map">
+          					<a href="map/">
           					<i class="glyphicon glyphicon-map-marker"></i> Map</a>
           				</li>
           				<li>

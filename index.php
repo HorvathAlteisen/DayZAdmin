@@ -18,8 +18,6 @@
 
 	session_start();
 
-	echo 'test try';
-
 	ACMS::getInstance('config/app.json');
 
 	$content = Content::getInstance('config/modules.json');
