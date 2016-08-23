@@ -1,5 +1,12 @@
 <?php
 
+
+if (isset($_GET["show"])) {
+		$show = $_GET["show"];
+	} else {
+		$show = 0;
+	}
+
 /*if (isset($_SESSION['user_id']))
 {*/
 	$pagetitle = "Chernarus";
@@ -18,6 +25,9 @@
 	<div class="panel-footer">
 	</div>
 </div>
+	<script src="js/leaflet.js" type="text/javascript"></script>
+		<script src="js/map.js" type="text/javascript"></script>
+		<script src="js/map/<?php echo ACMS::config('map'); ?>.js"></script>
 	<script>
 	InitMap();
 	
@@ -54,9 +64,9 @@
 
 	// store player/vehicle path
 	var mapMarkersPolylines = [];
-	var enableTracking = <?php echo $app->config('enableTracking'); ?>;
-	var keepTracksAfterLogout = <?php echo $app->config('keepTracksAfterLogout'); ?>;
-	var maxTrackingPositions = <?php echo $app->config('maxTrackingPositions'); ?>;
+	var enableTracking = <?php echo ACMS::config('enableTracking'); ?>;
+	var keepTracksAfterLogout = <?php echo ACMS::config('keepTracksAfterLogout'); ?>;
+	var maxTrackingPositions = <?php echo ACMS::config('maxTrackingPositions'); ?>;
 	var trackinfowindow = new L.popup({ content: "loading..." });
 
 	var trackPolyline = L.Polyline.extend({
@@ -106,12 +116,3 @@
 	
 	getData(<?php echo $show; ?>);
 	</script>
-
-<?php/*
-}
-else
-{
-	header('Location: index.php');
-}
-*/
-?>

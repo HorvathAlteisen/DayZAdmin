@@ -22,9 +22,7 @@
 		<!-- Map -->
 		<link rel="stylesheet" href="css/leaflet.css" type="text/css" />
 		<link rel="stylesheet" href="css/map.css" type="text/css" />
-		<!--<script src="js/leaflet.js" type="text/javascript"></script>
-		<script src="js/map.js" type="text/javascript"></script>
-		<script src="js/map/<?php echo ACMS::config('map'); ?>.js"></script>-->
+		
 	</head>
 	<body>
 		<?php include('main/modal.php'); ?>

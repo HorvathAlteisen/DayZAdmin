@@ -1,4 +1,7 @@
-<?php 
+<?php
+
+require_once('exception.inc.php');
+
 class Template {
 
 	private static $instance;
@@ -45,26 +48,11 @@ class Template {
 
 		$this->actionPath = $this->createPath(array($this->modulePath, $this->moduleName, $this->actionName));
 
-		if(!file_exists($this->actionPath)) {
-
-			$this->moduleName = $this->missingActionModuleAction[0];
-			$this->actionName = $this->missingActionModuleAction[1];
-			$this->viewName	  = $this->missingActionModuleAction[1];		
-
-		}
+		$this->checkFileForExistence($this->actionPath, $this->missingViewModuleAction);
 
 		$this->viewPath = $this->createPath(array($this->themesPath, $this->themeName,$this->moduleName, $this->actionName));
 
-		if(!file_exists($this->viewPath)) {
-			if ( $this->viewPath === false ) {
-				$this->moduleName = $this->missingViewModuleAction[0];
-				$this->actionName = $this->missingViewModuleAction[1];
-				$this->viewName   = $this->missingViewModuleAction[1];
-
-				$this->actionPath = $this->createPath($this->modulePath, $this->moduleName, $this->actionName);
-				$this->viewPath   = $this->createPath($this->moduleName, $this->viewName);
-			}
-		}
+		$this->checkFileForExistence($this->viewPath, $this->missingViewModuleAction);
 
 		// Action File
 		include($this->actionPath);
@@ -84,6 +72,25 @@ class Template {
 
 		return sprintf('%s.php', join(DIRECTORY_SEPARATOR,$join));
 
+	}
+
+	private function checkFileForExistence($pathToFile, $missingViewModuleAction = array()) {
+
+		if(count($missingViewModuleAction) == 0) {
+
+			// Throws an Exception because no array was given
+			throw new ACMSException("Error! No ");
+
+			return false;
+		} elseif(!file_exists($pathToFile)) {
+
+			$this->moduleName = $this->missingActionModuleAction[0];
+			$this->actionName = $this->missingActionModuleAction[1];
+			$this->viewName	  = $this->missingActionModuleAction[1];
+
+		}
+
+		return true;
 	}
 }
 ?>
