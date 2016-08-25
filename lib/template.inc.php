@@ -54,13 +54,13 @@ class Template {
 
 		$this->checkFileForExistence($this->viewPath, $this->missingViewModuleAction);
 
-		// Action File
+		// Action File - PHP code part of the Module
 		include($this->actionPath);
 
 		// Header File
 		include($this->createPath(array($this->themesPath, $this->themeName, $this->headerName)));
 
-		// Content File
+		// Content File - Layout part of the Module
 		include($this->viewPath);
 
 		// footer file
@@ -74,7 +74,7 @@ class Template {
 
 	}
 
-	private function checkFileForExistence($pathToFile, $missingViewModuleAction = array()) {
+	private function checkFileForExistence($pathToFile, $missingViewModuleAction = array(), $override = false) {
 
 		if(count($missingViewModuleAction) == 0) {
 

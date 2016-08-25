@@ -27,12 +27,12 @@
 	<body>
 		<?php include('main/modal.php'); ?>
 		<?php include('main/navbar.php') ?>
-		<div class="container">
+		<div class="container"><!--
 			<header class="container-fluid jumbotron page-header">
 				<h1>Dead SeriouZ</h1>
 				<p>We take Surviving to another level!</p>
-			</header>
-	  		<nav class="navbar navbar-inverse">
+			</header>-->
+	  		<!--<nav class="navbar navbar-inverse">
 	    		<div class="container-fluid">
 	    			<div class="navbar-header">
 	        			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1">
@@ -60,7 +60,7 @@
     	    			</ul>
       				</div>
     			</div>
-  			</nav>
+  			</nav>-->
   			<div class="row">
   				<div class="col-md-9">
   					<div class="alert alert-danger fade in">
