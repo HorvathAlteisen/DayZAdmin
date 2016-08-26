@@ -4,7 +4,7 @@
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="index.php?module=news"><i class="glyphicon glyphicon-home"></i> News</a></li>
-				<li><a href="index.php?module=leaderboard"><i class="glyphicon glyphicon-stats"></i> Leaderboard</a></li>
+				<li><a href="index.php?module=ranking"><i class="glyphicon glyphicon-stats"></i> Ranking</a></li>
 				<li><a href="index.php?module=table"><i class="glyphicon glyphicon-book"></i> Database</a></li>
 				<?php //Temporarely set ?>
 				<?php if (isset($_SESSION['userid'])) { ?>
@@ -18,4 +18,5 @@
 			</ul>
 		</div>
 	</div>
+
 </div>

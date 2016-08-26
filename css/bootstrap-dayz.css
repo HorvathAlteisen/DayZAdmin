@@ -4,6 +4,12 @@ body {
 
 }
 
+.well {
+
+  margin-bottom: 0px;
+
+}
+
 .navbar-brand {
   padding: 0px;
 }
@@ -12,14 +18,9 @@ body {
   width: 200px;
 }
 
-.panel-footer .pagination {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.panel-body .page-header, .page-header h2, .page-header h3 {
+/*.panel-body .page-header, .page-header h2, .page-header h3 {
 	margin-top: 0;
-}
+}*/
 
 .navbar .divider-vertical {
     height: 50px;
@@ -39,7 +40,7 @@ body {
      }
 }
 
-thead .sorting_asc:after {
+/*thead .sorting_asc:after {
 	content: "\e155";
 }
 
@@ -94,5 +95,5 @@ table thead th {
     line-height: 1.42857143;
     vertical-align: top;
     border-top: 1px solid #ddd;
-}
+}*/
 

@@ -4,7 +4,7 @@
 		"dbPort": 3306,
 		"dbUser": "root",
 		"dbPassword": "",
-		"db": "dayz-1-8-8"
+		"db": "dayz-1-8-8",
 	}, "rcon": {
 		"rconUser": "admin",
 		"rconPassword": "password",
