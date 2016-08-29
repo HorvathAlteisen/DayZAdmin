@@ -61,9 +61,9 @@ if (isset($_GET["show"])) {
 
 	// store player/vehicle path
 	var mapMarkersPolylines = [];
-	var enableTracking = <?php echo ACMS::config('enableTracking'); ?>;
-	var keepTracksAfterLogout = <?php echo ACMS::config('keepTracksAfterLogout'); ?>;
-	var maxTrackingPositions = <?php echo ACMS::config('maxTrackingPositions'); ?>;
+	var enableTracking = <?php echo $app->config('enableTracking'); ?>;
+	var keepTracksAfterLogout = <?php echo $app->config('keepTracksAfterLogout'); ?>;
+	var maxTrackingPositions = <?php echo $app->config('maxTrackingPositions'); ?>;
 	var trackinfowindow = new L.popup({ content: "loading..." });
 
 	var trackPolyline = L.Polyline.extend({
