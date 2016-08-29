@@ -46,6 +46,8 @@ class Template {
 
 	public function render() {
 
+		$app = ACMS::getInstance();
+
 		$this->actionPath = $this->createPath(array($this->modulePath, $this->moduleName, $this->actionName));
 
 		$this->checkFileForExistence($this->actionPath, $this->missingViewModuleAction);

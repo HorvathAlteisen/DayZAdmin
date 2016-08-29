@@ -1,12 +1,12 @@
 <?php
 class  connection {
 
-	private $config = null;
+	private $dbConfig = null;
 	private $pdo = null;
 
 	public function __construct($config) {
 
-		$this->config = $config;
+		$this->dbConfig = $config;
 
 	}
 
@@ -14,13 +14,11 @@ class  connection {
 
 		$dsn = "mysql:";
 
-		$dsn .= ";port=". $this->config->get("dataBase.dbPort");
-		$dsn .= ";dbname=". $this->config->get("dataBase.db");
-		$dsn .= 
+		$dsn .= ";port={$this->config->get("dbPort")}";
+		$dsn .= ";dbname={$this->config->get("db")}";
 
-		$this->pdo = new PDO($dsn, );
+		$this->pdo = new PDO($dsn, $this->config->get("dbUsername"), $this->config->get("dbPassword"));
 
 	}
-
 }
 ?>

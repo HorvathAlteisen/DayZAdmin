@@ -32,6 +32,7 @@ class Content {
 
 	public function render($options = array())
 	{
+		$app = ACMS::getInstance();
 		$config                    = new Config($options);
 		$basePath                  = $config->get('basePath');
 		$paramsArr                 = $config->get('params');
@@ -64,7 +65,7 @@ class Content {
 		
 		// Provide easier access to parameters.
 		$params  = new Config($paramsArr);
-		$baseURI = ACMS::config('BaseURI');
+		$baseURI = $app->config('BaseURI');
 		
 		if ($params->get('module')) {
 			$safetyArr  = array('..', '/', '\\');
@@ -76,7 +77,7 @@ class Content {
 				$actionName = $defaultAction;
 			}
 		}
-		elseif (ACMS::config('UseCleanUrls')) {
+		elseif ($app->config('UseCleanUrls')) {
 			$baseURI    = preg_replace('&/+&', '/', rtrim($baseURI, '/')).'/';
 			$requestURI = preg_replace('&/+&', '/', rtrim($_SERVER['REQUEST_URI'], '/')).'/';
 			$requestURI = preg_replace('&\?.*?$&', '', $requestURI);

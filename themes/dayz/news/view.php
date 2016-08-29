@@ -3,14 +3,10 @@
 
 
 ?>
-<div class="panel panel-default">
-		
+<div class="panel panel-default">		
 	<div class="panel-body">
-		<div class="page-header">
-		<?php
-			echo "<h3>".$pagetitle." <span class=\"label label-info pull-right\">New</span></h3>";
-		?>
-			
+		<div class="page-header">		
+			 <h3><?php echo $pagetitle; ?><span class="label label-info pull-right">New</span></h3>			
 		</div>
 		<div>
 			<ol class="breadcrumb">

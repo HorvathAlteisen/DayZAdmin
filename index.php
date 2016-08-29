@@ -17,19 +17,22 @@
 
 	session_start();
 
-	ACMS::getInstance('config/app.json');
+	ACMS::initialize('config/app.json');
+	$app = ACMS::getInstance();
+
+	$app->initializeConnections('config/servers.json');
 
 	$content = Content::getInstance('config/modules.json');
 
-	$content->setDefaultModule(ACMS::config('defaultModule'));
+	$content->setDefaultModule($app->config('defaultModule'));
 
 	$content->render(array(
-		'basePath'		=> ACMS::config('BaseURI'),
-		'useCleanUrls'	=> ACMS::config('UseCleanUrls'),
+		'basePath'		=> $app->config('BaseURI'),
+		'useCleanUrls'	=> $app->config('UseCleanUrls'),
 		'modulePath'	=> MODULE_DIR,
 		'themesPath'	=> THEMES_DIR,
-		'themeName'		=> ACMS::config('defaultTheme'),
-		'defaultAction' => ACMS::config('defaultAction'),
+		'themeName'		=> $app->config('defaultTheme'),
+		'defaultAction' => $app->config('defaultAction'),
 		'missingActionModuleAction'	=>	array('main', 'page_not_found'),
 		'missingViewModuleAction'	=>	array('main', 'page_not_found')
 	));

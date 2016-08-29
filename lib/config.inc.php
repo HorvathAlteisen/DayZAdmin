@@ -18,10 +18,9 @@ class Config {
 
 	public function __construct($pathToConfigFile) {
 
-		if(is_array($pathToConfigFile)) {
+		if(is_array($pathToConfigFile)) {		
 			$this->configArr = &$pathToConfigFile;
 		} else {
-
 			
 			$file = file_get_contents($pathToConfigFile);
 			$this->configArr = json_decode($file, true);
@@ -84,14 +83,7 @@ class Config {
 			// alternative ;)
 			return null;
 		}
-	}
-
-	/*public function get() {
-
-
-
-	}*/
-	
+	}	
 
 	public function set($key, $value, $options = array())
 	{

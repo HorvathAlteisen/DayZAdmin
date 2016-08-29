@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="EN">
 	<head>
-		<title><?php echo(ACMS::config('appName')); ?></title>
+		<title><?php echo($app->config('appName')); ?></title>
 		<!--<link rel="stylesheet" href="css/stylesheet.css" type="text/css" />-->
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

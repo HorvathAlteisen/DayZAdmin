@@ -18,48 +18,31 @@
 	</div>
 	<table class="table table-bordered table-striped">
 		<thead>
-			<th class="sorting">#</th>
-			<th class="sorting">Name</th>
-			<th class="sorting">Z Kills</th>
-			<th class="sorting">Murders</th>
-			<th class="sorting">B Kills</th>
-			<th class="sorting">Z Headshots</th>
-			<th class="sorting">Humanity</th>
-			<th class="sorting">Deaths</th>
-			<th class="sorting">Points</th>
+			<th>#</th>
+			<th>Name</th>
+			<th>Z Kills</th>
+			<th>Murders</th>
+			<th>B Kills</th>
+			<th>Z Headshots</th>
+			<th>Humanity</th>
+			<th>Deaths</th>
+			<th>Points</th>
 		</thead>
 		<tbody>
-			<?php if (sizeof($result) != 0) ?>
-				<?php foreach($result as $rowl) ?>
-					<?php $points = $rowl['KillsZ']+$rowl['KillsB']-$rowl['KillsH']-($rowl['Generation'] - 1);
-						  $deaths = $rowl['Generation'] - 1;?>
-					<?php if(isset($_SESSION['user_id'])) ?>
-						<tr>
-							<td>{$rank}</td>
-							<td><a href=\"".$security.".php?view=info&show=1&CharacterID={$rowl['CharacterID']}\">{$rowl['playerName']}</a></td>
-							<td>{$rowl['KillsZ']}</td>
-							<td>{$rowl['KillsH']}</td>
-							<td>{$rowl['KillsB']}</td>
-							<td>{$rowl['HeadshotsZ']}</td>
-							<td>{$rowl['Humanity']}</td>
-							<td>{$deaths}</td>
-							<td>{$points}</td>
-						</tr>";
-					<?php else ?>
-						<tr>
-							<td>{$rank}</td>
-							<td>{$rowl['playerName']}</td>
-							<td>{$rowl['KillsZ']}</td>
-							<td>{$rowl['KillsH']}</td>
-							<td>{$rowl['KillsB']}</td>
-							<td>{$rowl['HeadshotsZ']}</td>
-							<td>{$rowl['Humanity']}</td>
-							<td>{$deaths}</td>
-							<td>{$points}</td>
-						</tr>
-					<?php endif ?>
-							<?php $rank++; ?>
-				<?php endforeach?>
-			</tbody>
-		</table>
+		<?php foreach($result as $rowl): ?>
+			<tr>
+				<td>rank</td>
+				<td><a href="#"></a></td>
+				<td>KillZ</td>
+				<td>KillsH</td>
+				<td>KillsB</td>
+				<td>HeadshotsZ</td>
+				<td>Humanity</td>
+				<td>death</td>
+				<td>points</td>
+			</tr>
+			<?php $rank++; ?>
+		<?php endforeach ?>
+		</tbody>
+	</table>
 </div>
